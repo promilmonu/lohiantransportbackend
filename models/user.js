@@ -26,6 +26,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  role:{
+    type:Number, 
+    default:0 //0> Normal user 1>admin
+  },
+  profileImage:{
+    type:String,
+  }
 });
 
 module.exports = mongoose.model('User', userSchema)

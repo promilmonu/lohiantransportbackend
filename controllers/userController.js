@@ -1,10 +1,12 @@
 const userService = require("../services/userService");
 exports.registeredUsers = async (req, res) => {
   try {
-    userData = req.body;
+    
+    const userData = { ...req.file, ...req.body };
     const registerUser = await userService.registerUserService(userData);
-
-    res.status(201).json({ data: registerUser, status: "success" });
+//only  send response data without password here
+    const {password, ...data}= registerUser.toJSON()
+    res.status(201).json({ data: data, status: "success" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
