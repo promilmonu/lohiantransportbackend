@@ -19,7 +19,7 @@ db.once("open", () => console.log("Connected to the database!"));
 app.use("/api", userRouter);
 
 app.listen(`${PORT}`, ()=>{
-    console.log(`Server is running on port ${PORT}`);.
+    console.log(`Server is running on port ${PORT}`);
 })
 
 
